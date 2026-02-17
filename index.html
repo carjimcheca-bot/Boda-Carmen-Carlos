@@ -165,9 +165,34 @@ background:#7a9e7e;
 
 <canvas id="particles"></canvas>
 
+/* BOTÓN MÚSICA */
+.music-btn{
+position:fixed;
+bottom:25px;
+right:25px;
+width:60px;
+height:60px;
+border-radius:50%;
+border:none;
+background:#c8a27c;
+color:white;
+font-size:22px;
+cursor:pointer;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+transition:all 0.3s ease;
+z-index:999;
+}
+
+.music-btn:hover{
+transform:scale(1.1);
+background:#b48e6b;
+}
+
+ 
 <audio id="musica" loop>
 <source src="musica.mp3" type="audio/mpeg">
 </audio>
+
 
 <div class="hero">
 <h1>Carmen & Carlos</h1>
@@ -342,17 +367,20 @@ p.y=0;p.x=Math.random()*canvas.width;
 }
 setInterval(draw,33);
 
-/* MUSICA AUTOMÁTICA INTELIGENTE */
+/* CONTROL MÚSICA */
 const musica = document.getElementById("musica");
+const musicBtn = document.getElementById("musicBtn");
 
-function iniciarMusica(){
-    musica.play().catch(()=>{});
-    document.removeEventListener("click", iniciarMusica);
-    document.removeEventListener("scroll", iniciarMusica);
+function toggleMusic(){
+if(musica.paused){
+    musica.play();
+    musicBtn.innerHTML = "🔊";
+}else{
+    musica.pause();
+    musicBtn.innerHTML = "🔈";
+}
 }
 
-document.addEventListener("click", iniciarMusica);
-document.addEventListener("scroll", iniciarMusica);
 
 
 /* COPIAR IBAN */
@@ -364,4 +392,5 @@ alert("IBAN copiado 💕");
 
 </body>
 </html>
+
 
