@@ -195,6 +195,27 @@ z-index:9999;
 transform:scale(1.1);
 background:#b48e6b;
 }
+
+/* Ajuste nombre en móvil */
+.ampersand{
+display:inline;
+}
+
+/* Solo en móvil */
+@media(max-width:768px){
+
+.hero-content h1{
+line-height:1.2;
+}
+
+.ampersand{
+display:block;
+margin:10px 0;
+font-size:2rem;
+}
+
+}
+  
 </style>
 </head>
 
@@ -216,7 +237,12 @@ background:#b48e6b;
 </picture>
 
 <div class="hero-content">
-  <h1>Carmen & Carlos</h1>
+  <h1>
+  Carmen 
+  <span class="ampersand">&</span>
+  Carlos
+</h1>
+
   <p>30 de mayo de 2026</p>
 </div>
 
@@ -391,6 +417,7 @@ alert("IBAN copiado 💕");
 
 </body>
 </html>
+
 
 
 
